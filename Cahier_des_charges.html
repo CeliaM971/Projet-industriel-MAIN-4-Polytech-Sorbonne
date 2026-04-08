@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cahier_des_charges.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cahier-des-charges">Cahier des charges</h1>
+<hr>
+<h2 id="client--entreprise">Client &amp; Entreprise</h2>
+<p>Le client, Ludovic Saint-Bauzel, est un chercheur à l'ISIR, un laboratoire de robotique et de systèmes intelligents implanté au sein de Sorbonne Université. Dans le cadre de ses recherches, il travaille notamment sur le <strong>langage et sa sémantique</strong>. Il est actuellement en collaboration avec une linguiste dans le cadre de ce projet, en lien avec la <strong>langue des signes</strong>.</p>
+<hr>
+<h2 id="pourquoi--contexte-et-besoin"><em>Pourquoi?</em> : Contexte et besoin</h2>
+<p>Ce sujet est né d’un projet portant sur le guidage de personnes aveugles à l’aide de systèmes robotisés. C’est l’idée d’un « langage non parlé » qui a conduit à l’initiative de contacter une linguiste, Mme Claudia Bianchini, afin d’étudier la langue des signes. Le client ainsi que son équipe souhaitent pouvoir réaliser une base de données d'annotations de la langue des signes, à partir d'une base préexistante nommée Typannot, qui est un projet dont Mme Bianchini fait partie.</p>
+<hr>
+<h2 id="quest-ce-que-typannot"><em>Qu'est-ce que Typannot?</em></h2>
+<p><img src="Typannot.jpg" alt="bg left:50%  w:600">
+Typannot est un projet visant à mettre en place un système complet de transcription de langue des signes. C'est un système typographique reposant sur une approche phonétique articulatoire corporelle. Il cherche notamment à fournir aux linguistes un instrument pour transcrire et décrire le fonctionnement de la langue des signes.</p>
+<hr>
+<h2 id="besoins">Besoins</h2>
+<ul>
+<li>
+<p>Rendre un outil développé par des chercheurs en laboratoire accessible pour le grand public</p>
+</li>
+<li>
+<p>Pouvoir importer et traiter des vidéos hors d'un laboratoire scientifique</p>
+</li>
+<li>
+<p>Possibilité d'importer des vidéos et de les annoter avec Typannot (une typographie crée par des linguistes pour annoter la langue des signes).</p>
+</li>
+<li>
+<p>Reconnaissance des mouvements dynamiques en 3D.</p>
+</li>
+<li>
+<p>Outil utilisable par des chercheurs et open-source.</p>
+</li>
+<li>
+<p>(Optionnel) Visualisation des mouvements réalisés par la saisie de textes Typannot.</p>
+</li>
+</ul>
+<hr>
+<h2 id="qui-porte-le-besoin">Qui porte le besoin?</h2>
+<ul>
+<li>Les chercheurs et linguistes qui s'intéressent au langage</li>
+<li>Les personnes souhaitant apprendre et/ou communiquer en langue des signes</li>
+<li>Les personnes sourdes et malentendantes</li>
+</ul>
+<hr>
+<h2 id="quoi--livrables-et-ex%C3%A9cution"><em>Quoi?</em> : Livrables et exécution</h2>
+<h3 id="livrable">Livrable :</h3>
+<p>Application pour smartphone Android et IOS, qui pourra à partir d'une vidéo d'une personne parlant la langue des signes, reconnaitre les mouvements entiers (orientation des articulateurs, mouvements,...).
+Un système de reconnaissance et d'analyse de posture par méthode intelligente sur serveur ou embarqué.
+Une classification de mouvements à partir de la trajectoire avec Typannot.</p>
+<hr>
+<h2 id="ex%C3%A9cution">Exécution</h2>
+<ul>
+<li>
+<p>Adaptation d'une application Python pour ordinateur réalisant la tâche recherchée sur smartphone, compatible avec ios et android (multiplateforme)</p>
+</li>
+<li>
+<p>Etats de l'art et travail sur:</p>
+</li>
+</ul>
+<ol>
+<li>Quels outils actuels de reconnaissance de posture (potentiellement plus récents que alphaPose par exemple) seraient les meilleurs =&gt;  Étude et comparaison des modèles possibles pour la transition Video vers Squelette/Trajectoire</li>
+<li>Capacité à embarquer le système de traitement de la posture (mediapipe)</li>
+<li>Transition Squelette/Trajectoire vers Typannot</li>
+</ol>
+<hr>
+<ol start="4">
+<li>Etude approfondie de Typannot, réflexion sur la sélection d'un sous ensemble de Typannot pour réaliser notre base de données</li>
+<li>Classification de mouvement, réaliser des classes de mouvements</li>
+</ol>
+<ul>
+<li>(Ouverture) Étude des modèles Typannot to 3D (assez différent du reste du projet)</li>
+</ul>
+<hr>
+<h2 id="outils">Outils</h2>
+<h3 id="d%C3%A9veloppement">Développement</h3>
+<ul>
+<li><strong>Gitlab SU</strong>: outil permettant de mettre en commun le code, ainsi que d'organiser les différentes parties du travail via</li>
+<li><strong>Flutter</strong>: permet la création d'une application multiplateforme, prend en charge le côté graphique surtout</li>
+<li><strong>AlphaPose, Mmpose, 6Drepnet</strong>: permettent de calculer les squelettes de mouvements sur des vidéos</li>
+<li><strong>Mediapipe</strong>: permet de faire la même chose, mais est compatible avec android et ios (donc embarqué) et marcherait peut-être mieux avec la 3D</li>
+<li><strong>FastAPI</strong>: Pour faire le lien entre l'application et le serveur (au lieu de ssh)</li>
+</ul>
+<hr>
+<h2 id="outils-de-pr%C3%A9sentation">Outils de présentation</h2>
+<p>Pour la présentation:</p>
+<ul>
+<li><strong>Markdown</strong>: pour les rapports et slides de présentation (à combiner avec <strong>Mermaid</strong> pour faire diagrammes) + <strong>Marp</strong></li>
+<li><strong>Figma</strong>: permet de simuler le côté esthétique de l'interface de l'application</li>
+</ul>
+<hr>
+<h2 id="quand-d%C3%A9lais"><em>Quand?</em> Délais</h2>
+<h3 id="dur%C3%A9e-des-t%C3%A2ches">Durée des tâches</h3>
+<ul>
+<li>1 semaine: se familiariser et faire marcher code python fourni</li>
+<li>1h : Créer layout des fenêtres de l'application avec figma</li>
+<li>4 semaines: Adaptation du code python sur smartphone, à l'aide de flutter (sans le côté serveur pour l'instant)</li>
+<li>2 semaines (en parallèle des 4 semaines): Développment API</li>
+<li>2-3 semaines: Point sur les modèles possibles et capacité à embarquer</li>
+<li>Passer 1-2 semaine par état de l'art, étude</li>
+<li>13 janvier 2026: Avoir terminé l'implémentation de application + les recherches sur tous les autres sujets</li>
+</ul>
+<hr>
+<pre><code class="language-mermaid"><div class="mermaid">gantt
+    title Diagramme de Gantt Projet industriel
+    dateFormat YYYY-MM-DD
+    section Prise en main
+        Familiarisation code python :t1, 2025-10-07, 7d
+        Création fenêtres appli figma :t2, 2025-10-14, 1d
+        Etude modèles posture possibles et capacité à embarquer: t3,2025-10-07, 28d
+        Transition squelette-typannot :t7,after t3, 7d
+        Typannot classification mouvements: t8,after t7,7d 
+    section Developpement
+        Adaptation du code python sur smartphone :t4, 2025-10-07, 28d
+        Développment API :t5,2025-10-21, 14d
+        Dev appli, recherches terminées:t6,2025-10-7, 60d
+</div></code></pre>
+<hr>
+<h2 id="deadlines-impos%C3%A9es-par-l%C3%A9cole">Deadlines imposées par l’école</h2>
+<ul>
+<li><strong>13 janvier 2026:</strong></li>
+</ul>
+<p>-&gt; Introduction et présentation de la problématique<br>
+-&gt; Présentation des concepts utilisés, état de l'art sur le sujet<br>
+-&gt; Descriptif de la démarche et des résultats<br>
+-&gt; Analyse critique des résultats (si on a déjà des résultats)<br>
+-&gt; Si possible, un début de réflexion sur les aspects environnementaux en lien avec notre travail ou le contexte de notre travail (cf. détails dans les critères d'évaluation).<br>
+-&gt; Feuille de route pour le second semestre</p>
+<hr>
+<ul>
+<li><strong>Pas de date exacte mais vers mi-avril</strong> :</li>
+</ul>
+<p>-&gt; Notre rapport final (à rendre 1 semaine avant la soutenance)<br>
+-&gt; Si possible selon l'accord passé avec le client : le code source réalisé (GitHub, GitLab, etc.)<br>
+-&gt; Un poster <br>
+-&gt; Une soutenance</p>
+
+</body>
+</html>
