@@ -103,7 +103,7 @@ Avant de lancer le backend, renseignez votre adresse IP locale dans `lib/config.
 
 ```json
 {
-  "server_ip": "192.168.1.100",
+  "server_ip": "192.168.X.X",
   "server_port": 8000
 }
 ```
