@@ -130,6 +130,17 @@ Sur **émulateur Android**, utilisez `10.0.2.2` à la place de votre IP locale :
 uvicorn backend.main:app --reload
 ```
 
+> ⚠️ À compléter dans le fichier mocap1.py :
+
+```
+KEY_PATH =
+IP_ADRESS =
+USER =
+PASS_PHRASE =
+```
+
+KEY_PATH doit contenir le chemin d'accès vers un repertoire ayant par défaut la clé d'accès au cluster sinon il est possible qu'une autre clé soit utilisée.
+
 Le serveur démarre sur `http://127.0.0.1:8000`.
 
 Pour vérifier que tout fonctionne, ouvrez dans votre navigateur :
